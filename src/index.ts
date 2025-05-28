@@ -14,6 +14,7 @@ import { getBaseUrl } from "./utils/api";
 
 export * from "./sessions/WebSocketSession";
 export * from "./sessions/RestSession";
+export * from "./utils/pr-api";
 
 function ensure<T>(value: T | undefined, message: string): T {
   if (!value) {

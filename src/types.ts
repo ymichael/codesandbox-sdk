@@ -241,3 +241,29 @@ export type SandboxBrowserSession = PitcherManagerResponse & {
   env?: Record<string, string>;
   hostToken?: HostToken;
 };
+
+export type PRStatus = "open" | "closed" | "merged" | "draft";
+
+export interface PRInfo {
+  id: string;
+  number: number;
+  title: string;
+  status: PRStatus;
+  url: string;
+  branch: string;
+  baseBranch: string;
+  createdAt: Date;
+  updatedAt: Date;
+  author?: string;
+  repository?: string;
+}
+
+export interface ThreadInfo {
+  id: string;
+  sandboxId: string;
+  activeBranch?: string;
+  prId?: string;
+  createdAt: Date;
+  updatedAt: Date;
+  metadata?: Record<string, any>;
+}

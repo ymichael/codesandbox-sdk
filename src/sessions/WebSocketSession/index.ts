@@ -14,6 +14,7 @@ import { Commands } from "./commands";
 import { Git } from "./git";
 import { HostToken } from "../../Hosts";
 import { Hosts } from "./hosts";
+import { PRManagement } from "./pr-management";
 
 export * from "./filesystem";
 export * from "./ports";
@@ -24,6 +25,7 @@ export * from "./commands";
 export * from "./git";
 export * from "./interpreters";
 export * from "./hosts";
+export * from "./pr-management";
 
 export class WebSocketSession {
   private disposable = new Disposable();
@@ -72,6 +74,11 @@ export class WebSocketSession {
    * Namespace for tasks that are defined in the Sandbox.
    */
   public readonly tasks = new Tasks(this.disposable, this.pitcherClient);
+
+  /**
+   * Namespace for PR and thread management
+   */
+  public readonly prs = new PRManagement(this.disposable, this.pitcherClient);
 
   constructor(
     protected pitcherClient: IPitcherClient,
